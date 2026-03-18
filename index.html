@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BscBA LTD - Professional Business Platform</title>
+   <style>
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   }
+
+   body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      background: linear-gradient(180deg, #f5f7fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+      color: #2c3e50;
+      overflow-x: hidden;
+   }
+
+   /* Header Section */
+   header {
+      background: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+   }
+
+   .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+   }
+
+   /* Navigation Section */
+   nav {
+      display: flex;
+      gap: 8px;
+      animation: slideDownNav 0.6s ease-out;
+   }
+
+   @keyframes slideDownNav {
+      from {
+         opacity: 0;
+         transform: translateY(-10px);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+
+   a {
+      padding: 10px 20px;
+      font-size: 15px;
+      text-decoration: none;
+      color: #2c3e50;
+      background: transparent;
+      border-radius: 6px;
+      border: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      position: relative;
+   }
+
+   a:hover {
+      background: #f0f4f8;
+      color: #0066cc;
+   }
+
+   a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #0066cc, #0052a3);
+      transition: width 0.3s ease;
+   }
+
+   a:hover::after {
+      width: calc(100% - 40px);
+   }
+
+   /* Main Container */
+   main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+   }
+
+   /* Hero Section */
+   .hero {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 0.8s ease-out;
+   }
+
+   @keyframes fadeInDown {
+      from {
+         opacity: 0;
+         transform: translateY(-20px);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+
+   .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a2332;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+   }
+
+   .hero p {
+      font-size: 16px;
+      color: #546e7a;
+      line-height: 1.6;
+   }
+
+   /* Content Grid */
+   .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin: 40px 0;
+   }
+
+   /* Form Container */
+   .form-section {
+      animation: fadeInUp 0.8s ease-out;
+   }
+
+   @keyframes fadeInUp {
+      from {
+         opacity: 0;
+         transform: translateY(30px);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+
+   .form-card {
+      background: white;
+      border: none;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.3s ease;
+   }
+
+   .form-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+   }
+
+   .form-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a2332;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+   }
+
+   .form-subtitle {
+      font-size: 14px;
+      color: #546e7a;
+      margin-bottom: 25px;
+   }
+
+   form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+   }
+
+   .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+
+   label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+   }
+
+   input[type="text"],
+   input[type="password"],
+   input[type="email"] {
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1.5px solid #d4dce6;
+      border-radius: 6px;
+      width: 100%;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      background: #fafbfc;
+   }
+
+   input[type="text"]:focus,
+   input[type="password"]:focus,
+   input[type="email"]:focus {
+      outline: none;
+      border-color: #0066cc;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+   }
+
+   input[type="text"]::placeholder,
+   input[type="password"]::placeholder,
+   input[type="email"]::placeholder {
+      color: #90a4ae;
+   }
+
+   /* Button Styles */
+   .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+   }
+
+   input[type="submit"],
+   input[type="reset"] {
+      flex: 1;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+   }
+
+   input[type="submit"] {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+   }
+
+   input[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35);
+   }
+
+   input[type="submit"]:active {
+      transform: translateY(0);
+   }
+
+   input[type="reset"] {
+      background: #f0f4f8;
+      color: #2c3e50;
+      border: 1.5px solid #d4dce6;
+   }
+
+   input[type="reset"]:hover {
+      background: #e8ecf1;
+      border-color: #c0cad8;
+   }
+
+   /* Map Container */
+   .map-section {
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+   }
+
+   .map-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+   }
+
+   .map-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a2332;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+   }
+
+   iframe {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      height: auto;
+      border: none;
+   }
+
+   /* Footer */
+   footer {
+      background: white;
+      border-top: 1px solid #eceff1;
+      padding: 30px 20px;
+      margin-top: 60px;
+      text-align: center;
+      color: #546e7a;
+      font-size: 14px;
+   }
+
+   footer p {
+      margin-bottom: 8px;
+   }
+
+   /* Responsive Design */
+   @media (max-width: 1024px) {
+      .content-grid {
+         grid-template-columns: 1fr;
+         gap: 30px;
+      }
+
+      .hero h1 {
+         font-size: 28px;
+      }
+   }
+
+   @media (max-width: 768px) {
+      .header-content {
+         flex-direction: column;
+         gap: 15px;
+      }
+
+      nav {
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+
+      a {
+         padding: 8px 16px;
+         font-size: 14px;
+      }
+
+      main {
+         padding: 25px 20px;
+      }
+
+      .hero h1 {
+         font-size: 24px;
+      }
+
+      .form-card,
+      .map-card {
+         padding: 25px 20px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="submit"],
+      input[type="reset"] {
+         font-size: 14px;
+         padding: 11px 12px;
+      }
+
+      iframe {
+         width: 100% !important;
+         height: 300px !important;
+      }
+
+      .button-group {
+         flex-direction: column;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+         width: 100%;
+      }
+   }
+
+   @media (max-width: 480px) {
+      nav {
+         gap: 6px;
+      }
+
+      a {
+         padding: 8px 12px;
+         font-size: 13px;
+      }
+
+      .hero h1 {
+         font-size: 20px;
+      }
+
+      .form-card {
+         padding: 20px;
+      }
+
+      .button-group {
+         gap: 10px;
+      }
+   }
+   </style>
+</head>
+<body>
+<header>
+   <div class="header-content">
+      <div class="logo">💼 BscBA LTD</div>
+      <nav>
+         <a href="index.html">Home</a>
+         <a href="Session%204/register.html">Join Us</a>
+         <a href="Session%204/contact.html">Contact</a>
+      </nav>
+   </div>
+</header>
+
+<main>
+   <section class="hero">
+      <h1>Welcome to BscBA LTD</h1>
+      <p>Join our professional business network and unlock new opportunities for growth and success</p>
+   </section>
+
+   <div class="content-grid">
+      <div class="form-section">
+         <div class="form-card">
+            <h2 class="form-title">📝 Create Your Account</h2>
+            <p class="form-subtitle">Set up your profile in just 3 steps</p>
+            <form>
+               <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" placeholder="Choose your unique username" required>
+               </div>
+               <div class="form-group">
+                  <label for="password1">Password</label>
+                  <input type="password" id="password1" placeholder="Create a strong password" required>
+               </div>
+               <div class="form-group">
+                  <label for="password2">Confirm Password</label>
+                  <input type="password" id="password2" placeholder="Re-enter your password" required>
+               </div>
+               <div class="button-group">
+                  <input type="submit" value="Create Account">
+                  <input type="reset" value="Clear">
+               </div>
+            </form>
+         </div>
+      </div>
+
+      <div class="map-section">
+         <div class="map-card">
+            <h2 class="map-title">📍 Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.499029840302!2d30.059545509598976!3d-1.9537081367096025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca4294197b1a5%3A0xafa0c46887b3a2c6!2sKigali%20Marriott%20Hotel!5e0!3m2!1sen!2srw!4v1772611637131!5m2!1sen!2srw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         </div>
+      </div>
+   </div>
+</main>
+
+<footer>
+   <p>&copy; 2024 BscBA LTD. All rights reserved.</p>
+   <p>Professional Business Solutions | Dedicated to Your Success</p>
+</footer>
+ 
+</body>
+</html>
